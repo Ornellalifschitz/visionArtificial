@@ -40,9 +40,15 @@ def train_model():
         print("📂 La carpeta 'models' ya existía")
     
     # Guardar el modelo
-    model_path = 'models/modelo_notas_musicales.pkl'
+    model_path = 'models/modelo_notas_musicales.joblib'
     joblib.dump(tree, model_path)
     print(f"✅ Modelo guardado en: {model_path}")
     
     return tree
 
+
+if __name__ == "__main__":
+    print("🚀 Iniciando entrenamiento del modelo...")
+    model = train_model()
+    print("✅ Entrenamiento completado exitosamente!")
+    print(f"📊 Modelo entrenado con {len(model.classes_)} clases: {model.classes_}")
